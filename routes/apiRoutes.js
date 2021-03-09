@@ -10,6 +10,10 @@ module.exports = (app) => {
     });
 
     app.post('/api/notes', (req, res) => {
-        notesData.push(req.body)
+       const newNote = req.body;
+       newNote.id = require('uniqid');
+
+        notesData.push(newNote)
+        res.json(newNote)
     })
 }
