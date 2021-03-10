@@ -1,34 +1,37 @@
 // load data
 const fs = require('fs');
 const uniqid = require('uniqid');
+const util = require('util')
+const readFileAsync = util.promisify(fs.readFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 
 // Routing
 
 module.exports = (app) => {
 
     app.get('/api/notes', (req, res) => {
-        fs.readFile('../db/db.json', (err, data) => {
+        fs.readFile('./db/db.json', (err, data) => {
+            let notes = JSON.parse(data);
             if (err) throw err;
             
             else { 
-                let notes = JSON.parse(data);
-                res.end(notes);
-            }
-        })
-        
-    });
+                
+                    return res.json(notes)
+                }             
+         })
+     });
 
     app.post('/api/notes', (req, res) => {
-        const newNote = req.body;
-        newNote.id = uniqid();
-        console.log(newNote, "this is newNote")
+        const newNote = {title: req.title, text: req.text};
 
-        let writeNote = JSON.stringify(newNote);
+        console.log(req.body, 'req.body')
 
-        fs.writeFile('../db/db.json', writeNote, (err) => {
-            if (err) throw err;
-            console.log('Data written to db.json')
-        })
-      
+    //     // newNote.id = uniqid();
+    //     console.log(newNote, "this is newNote")
+
+       // let writeNote = JSON.stringify(newNote);
+
+      // return writeFileAsync('./db/db.json', JSON.stringify(newNote))
+     
     })
 }
