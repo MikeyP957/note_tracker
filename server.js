@@ -5,13 +5,15 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
+//static files
+app.use(express.static('public'));
+
 //Router
 
 require('./routes/apiRoutes')(app);
 require('./routes/htmlRoutes')(app);
 
-//static files
-app.use('/assets', express.static(__dirname + '/public'))
+
 
 //listener
 app.listen(PORT, () => {

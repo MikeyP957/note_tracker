@@ -1,19 +1,20 @@
 // load data
-const notesData = require('../db/db.json');
+const fs = require('fs');
 
 // Routing
 
 module.exports = (app) => {
 
     app.get('/api/notes', (req, res) => {
-        res.json(notesData)
+        fs.readFile('../db/db.json', (err, data) => {
+            if (err) throw err;
+            
+            else res.end(data)             
+        })
+        
     });
 
     app.post('/api/notes', (req, res) => {
-       const newNote = req.body;
-       newNote.id = require('uniqid');
-
-        notesData.push(newNote)
-        res.json(newNote)
+      
     })
 }
