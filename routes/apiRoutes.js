@@ -21,6 +21,12 @@ module.exports = (app) => {
          })
      });
 
+     fs.readFile('./public/assets/js/index.js', (err, content) => {
+         if (err) throw err;
+         let rendered = content.toString();
+         return rendered;
+     })
+
     app.post('/api/notes', (req, res) => {
         const newNote = {title: req.title, text: req.text};
 
