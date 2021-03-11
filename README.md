@@ -22,4 +22,4 @@ Front End
 
 ## URL
 
-[NoteTracker](https://mikeyp957.github.io/note_tracker/.)
+[Note Tracker URL](https://mikeyp957.github.io/note_tracker/.)
