@@ -2,6 +2,8 @@
 const fs = require('fs');
 const uniqid = require('uniqid');
 const util = require('util')
+const notesData = require('../db/db.json')
+
 // const readFileAsync = util.promisify(fs.readFile);
 // const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -36,13 +38,16 @@ module.exports = (app) => {
         };
 
         console.log(newNote, 'newNote object')
-    
+        
+        notesData.push(newNote)
     //     // newNote.id = uniqid();
     //     console.log(newNote, "this is newNote")
 
     //    let writeNote = JSON.stringify(newNote);
 
     //   return fs.writeFile('./db/db.json', writeNote)
-     res.json(newNote);
+    console.log(notesData)
+    
+     res.json(notesData);
     })
 }
