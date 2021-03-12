@@ -5,20 +5,20 @@ This application is an example of a simple note taker that takes in user informa
 
 ## Usage
 When the user opens the page they are presented with a loading page that links to the notes page where they can view and update notes to the page. 
-[Display](img/display_page.png)
+![Display](img/display_page.png)
 
-[Display](img/display_noteT.png)
+![Display](img/display_noteT.png)
 
 Writing and saving can easily be done by first typing into the designated input containers (title and message), and then clicking the save icon found in the top right of the page. The new notes title will then be displayed in the left hand column of the notes page after the page is refreshed. 
-1. [Note](img/Screen Shot 2021-03-11 at 9.23.47 PM.png)
+1. ![Note](img/Screen Shot 2021-03-11 at 9.23.47 PM.png)
 
-1. [Write note](img/write_note.png)
+1. ![Write note](img/write_note.png)
 
-1. [Note Saved](img/note_saved.png)
+1. ![Note Saved](img/note_saved.png)
 
 To view the note message the user must click on the desired note and then the full message will be displayed.
 
-[Check Note](img/check_note.png)
+![Check Note](img/check_note.png)
 
 
 ## Deoployment
