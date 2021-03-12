@@ -2,8 +2,8 @@
 const fs = require('fs');
 const uniqid = require('uniqid');
 const util = require('util')
-const readFileAsync = util.promisify(fs.readFile);
-const writeFileAsync = util.promisify(fs.writeFile);
+// const readFileAsync = util.promisify(fs.readFile);
+// const writeFileAsync = util.promisify(fs.writeFile);
 
 // Routing
 
@@ -21,23 +21,28 @@ module.exports = (app) => {
          })
      });
 
-     fs.readFile('./public/assets/js/index.js', (err, content) => {
-         if (err) throw err;
-         let rendered = content.toString();
-         return rendered;
-     })
+    //  fs.readFile('./public/assets/js/index.js', (err, content) => {
+    //     if (err) throw err;
+    //     let rendered = content.toString();
+    //     return rendered;
+    // })
 
     app.post('/api/notes', (req, res) => {
-        const newNote = {title: req.title, text: req.text};
+        
+        const newNote = {
+            title: req.body.title, 
+            text: req.body.text,
+            id: uniqid()
+        };
 
-        console.log(req.body, 'req.body')
-
+        console.log(newNote, 'newNote object')
+    
     //     // newNote.id = uniqid();
     //     console.log(newNote, "this is newNote")
 
-       // let writeNote = JSON.stringify(newNote);
+    //    let writeNote = JSON.stringify(newNote);
 
-      // return writeFileAsync('./db/db.json', JSON.stringify(newNote))
-     
+    //   return fs.writeFile('./db/db.json', writeNote)
+     res.json(newNote);
     })
 }
