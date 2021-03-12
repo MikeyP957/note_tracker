@@ -10,7 +10,6 @@ When the user opens the page they are presented with a loading page that links t
 ![Display](img/display_noteT.png)
 
 Writing and saving can easily be done by first typing into the designated input containers (title and message), and then clicking the save icon found in the top right of the page. The new notes title will then be displayed in the left hand column of the notes page after the page is refreshed. 
-1. ![Note](img/Screen Shot 2021-03-11 at 9.23.47 PM.png)
 
 1. ![Write note](img/write_note.png)
 
